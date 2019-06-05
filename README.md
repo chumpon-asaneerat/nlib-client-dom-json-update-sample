@@ -1,2 +1,2 @@
-# github-empty-project
-The github empty tempate
+# nlib client dom-json update sample
+The NLib Client - dom and json model sync sample
