@@ -259,6 +259,10 @@ class HtmlTags {
         .add.div.content('FIRST')
             .add.h2.content('This is test H2').end
             .add.h3.content('This is test H3').end
+        .end
+        .add.p.content('This is test ')
+            .add.i.content(' "show the italic message"').end
+            .add.text.content(' display inline.').end
         .end;
 
     //console.log(model2.toJson());
