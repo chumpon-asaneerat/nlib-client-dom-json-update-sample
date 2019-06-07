@@ -2,11 +2,17 @@
 class HtmlTag {
     constructor(tagName, parent) {
         this._tagName = tagName;
+        this._content = '';
         this._children = [];
         this._parent = parent;
         this._tags = new HtmlTags(this);
     }
     get tagName() { return this._tagName; }
+    getContent() { return this._content; }
+    content(value) {
+        this._content = value;
+        return this;
+    }
     get children() { return this._children; }
     child(index) {
         return (index >= 0 && index <= this._children.length - 1) ? this._children[index] : null;
@@ -29,8 +35,9 @@ class HtmlTag {
         let appendJson = (tag) => {
             let curr = {
                 "<>": tag.tagName,
+                "content": tag.getContent(),
                 "children": []
-            }            
+            }
             tag.children.forEach(child => {
                 curr.children.push(appendJson(child));
             });
@@ -39,8 +46,78 @@ class HtmlTag {
         let result = appendJson(this);
         return JSON.stringify(result, null, 4);
     }
+    render() {
+        let jsonObj = JSON.parse(this.toJson());
+        let rootElement = createElement(jsonObj);
+        return rootElement;
+    }
     static create(tagName) { return new HtmlTag(tagName, null); }
 }
+
+function createElement(tagObj) {
+    let tagName = tagObj['<>'].toLowerCase();
+
+    let el;
+
+    let isTextNode = (tagName === '#text');
+    let hasChild = (tagObj.children.length === 0);
+    let hasContent = (tagObj.content && tagObj.content !== '');
+
+    if (hasContent) {
+        if (hasChild) {
+            // has content and has child so return text node.
+            if (isTextNode) {
+                el = document.createTextNode(tagObj.content);
+            }
+            else {
+                // create new tag.
+                el = document.createElement(tagName);
+                // append textNode to created tag.
+                el.appendChild(document.createTextNode(tagObj.content));
+            }
+        }
+        else {
+            // has content but no child.
+            if (isTextNode) {
+                // current tagName is #text
+                el = document.createTextNode(tagObj.content);
+            }
+            else {
+                // current tag is General HTML tag
+                // create new tag.
+                el = document.createElement(tagName);
+                // append textNode to created tag.
+                el.appendChild(document.createTextNode(tagObj.content));
+            }
+        }
+    }
+    else {
+        // no content so no need to check child
+        if (isTextNode) { 
+            // is text node. so create empty textNode.
+            el = document.createTextNode('');
+        }
+        else {
+            // another tag name.
+            el = document.createElement(tagName);
+        }
+    }
+
+    tagObj.children.forEach(childObj => {
+        let childElm = createElement(childObj);
+        try {
+            el.appendChild(childElm);
+        }
+        catch (err) {
+            console.log(childElm);
+            console.log(err);
+        }
+    });
+
+    return el;
+};
+
+
 
 // - Class to wrap HTML individual Tags.
 class HtmlTags {
@@ -158,6 +235,7 @@ class HtmlTags {
     get tbody() { return new HtmlTag('tbody', this._parent) };
     get td() { return new HtmlTag('td', this._parent) };
     get template() { return new HtmlTag('template', this._parent) };
+    get text() { return new HtmlTag('#text', this._parent) };
     get textarea() { return new HtmlTag('textarea', this._parent) };
     get tfoot() { return new HtmlTag('tfoot', this._parent) };
     get th() { return new HtmlTag('th', this._parent) };
@@ -187,8 +265,7 @@ class HtmlTags {
 
 (() => {
     console.clear();    
-    //let appElem = document.getElementById('app')
-    
+    /*
     // use append method
     console.log('generate model json.');
     let model = HtmlTag.create('div');
@@ -200,19 +277,25 @@ class HtmlTags {
             .addTag('h2').end
             .addTag('h3').end
         .end;
-    console.log(model.toJson());
+    //console.log(model.toJson());
+    */
 
     // use add property
     console.log('generate model2 json.');
     let model2 = HtmlTag.create('div');
     model2
         .add.h1
-            .add.span.end
+            .add.text.content('This is test ').end
+            .add.i.content(' "show the italic message"').end
+            .add.text.content(' display inline.').end
         .end
-        .add.div
-            .add.h2.end
-            .add.h3.end
+        .add.div.content('FIRST')
+            .add.h2.content('This is test H2').end
+            .add.h3.content('This is test H3').end
         .end;
 
-    console.log(model2.toJson());    
+    console.log(model2.toJson());
+    let appElem = document.getElementById('app')
+    let el = model2.render();
+    appElem.appendChild(el);
 })();
