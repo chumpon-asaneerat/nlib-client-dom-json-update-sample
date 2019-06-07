@@ -1,4 +1,23 @@
+// Color Hint
+///  normal
+//!  fatal error
+//?  feature
+//*  completed
+//#  warning
+//$  information
+//// strike out
+
 // - Class to create HTML Tag element.
+//*  supports tagname, parent and childs.
+//*  supports fluent interface.
+//*  supports generate Json string (for save later).
+//*  supports render to html element.
+///  add HtmlBuilder to create HTMLElement model (experiment).
+//?  supports load Json string for rebuild HtmlTag model.
+//?  supports 
+//?  supports 
+//$  supports 
+//$  supports 
 class HtmlTag {
     constructor(tagName, parent) {
         this._tagName = tagName;
@@ -82,6 +101,12 @@ class HtmlBuilder {
 }
 
 // - Class to wrap HTML individual Tags.
+//*  supports nearly all HTML individual Tags.
+//?  Re-implements HTMLElement inherited classes based on WebAPI document. 
+//?  supports 
+//?  supports 
+//$  supports 
+//$  supports 
 class HtmlTags {
     constructor(parent) {
         this._parent = parent;
