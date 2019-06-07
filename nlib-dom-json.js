@@ -207,7 +207,7 @@ class HtmlTags {
     let model2 = HtmlTag.create('div');
     model2
         .add.h1
-            .$_.span.end
+            .add.span.end
         .end
         .add.div
             .add.h2.end
