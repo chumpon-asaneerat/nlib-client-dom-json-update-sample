@@ -81,7 +81,6 @@ class HtmlBuilder {
     }
 }
 
-
 // - Class to wrap HTML individual Tags.
 class HtmlTags {
     constructor(parent) {
@@ -219,11 +218,11 @@ class HtmlTags {
 
 // - Class mixin methods.
 
-// - Class to access HTML dom styles.
+// - Class to generate HTML styles (model).
 
-// - Class to access HTML dom attributes.
+// - Class to generate HTML attributes (model).
 
-// - Class to access HTML dom events.
+// - Class to generate HTML events (model).
 
 
 (() => {
