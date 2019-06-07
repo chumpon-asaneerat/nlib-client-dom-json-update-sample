@@ -48,75 +48,38 @@ class HtmlTag {
     }
     render() {
         let jsonObj = JSON.parse(this.toJson());
-        let rootElement = createElement(jsonObj);
+        let rootElement = HtmlBuilder.createElement(jsonObj);
         return rootElement;
     }
     static create(tagName) { return new HtmlTag(tagName, null); }
 }
 
-function createElement(tagObj) {
-    let tagName = tagObj['<>'].toLowerCase();
-
-    let el;
-
-    let isTextNode = (tagName === '#text');
-    let hasChild = (tagObj.children.length === 0);
-    let hasContent = (tagObj.content && tagObj.content !== '');
-
-    if (hasContent) {
-        if (hasChild) {
-            // has content and has child so return text node.
-            if (isTextNode) {
-                el = document.createTextNode(tagObj.content);
-            }
-            else {
-                // create new tag.
-                el = document.createElement(tagName);
-                // append textNode to created tag.
-                el.appendChild(document.createTextNode(tagObj.content));
-            }
+class HtmlBuilder {
+    static createTextElement(tagObj) {
+        let tagName = tagObj['<>'].toLowerCase();
+        let el;
+        if (tagName === '#text') {
+            // create text node for append to parent.
+            el = document.createTextNode(tagObj.content);
         }
         else {
-            // has content but no child.
-            if (isTextNode) {
-                // current tagName is #text
-                el = document.createTextNode(tagObj.content);
-            }
-            else {
-                // current tag is General HTML tag
-                // create new tag.
-                el = document.createElement(tagName);
-                // append textNode to created tag.
-                el.appendChild(document.createTextNode(tagObj.content));
-            }
-        }
-    }
-    else {
-        // no content so no need to check child
-        if (isTextNode) { 
-            // is text node. so create empty textNode.
-            el = document.createTextNode('');
-        }
-        else {
-            // another tag name.
+            // create new tag.
             el = document.createElement(tagName);
+            // append textNode to created tag.
+            el.appendChild(document.createTextNode(tagObj.content));
         }
+        return el;
     }
-
-    tagObj.children.forEach(childObj => {
-        let childElm = createElement(childObj);
-        try {
+    static createElement(tagObj) {
+        let el = HtmlBuilder.createTextElement(tagObj);
+        tagObj.children.forEach(childObj => {
+            let childElm = HtmlBuilder.createElement(childObj);
             el.appendChild(childElm);
-        }
-        catch (err) {
-            console.log(childElm);
-            console.log(err);
-        }
-    });
-
-    return el;
-};
-
+        });
+    
+        return el;
+    }
+}
 
 
 // - Class to wrap HTML individual Tags.
@@ -289,12 +252,16 @@ class HtmlTags {
             .add.i.content(' "show the italic message"').end
             .add.text.content(' display inline.').end
         .end
+        .add.h2
+            .add.hr.end
+            .add.text.content('123').end
+        .end
         .add.div.content('FIRST')
             .add.h2.content('This is test H2').end
             .add.h3.content('This is test H3').end
         .end;
 
-    console.log(model2.toJson());
+    //console.log(model2.toJson());
     let appElem = document.getElementById('app')
     let el = model2.render();
     appElem.appendChild(el);
