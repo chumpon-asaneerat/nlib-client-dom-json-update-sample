@@ -16,6 +16,9 @@
 //?  supports load Json string for rebuild HtmlTag model.
 //?  supports bind events function and stored in Json string.
 //?  required machanism to unbind events before reload model. 
+//?  Reimplement HtmlTag in seperated files (1 file per tag). 
+//?  Reimplement individual HtmlTag to has its own attribute.
+//?  supports 
 //?  supports 
 //?  supports 
 //$  supports 
