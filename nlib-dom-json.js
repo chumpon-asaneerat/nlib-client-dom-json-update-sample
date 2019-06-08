@@ -24,12 +24,15 @@ class HtmlTag {
     constructor(tagName, parent) {
         this._tagName = tagName;
         this._content = '';
+        this._attr = {};
         this._children = [];
         this._parent = parent;
         this._tags = new HtmlTags(this);
+        this._attrs = new HtmlAttributes(this);
     }
     get tagName() { return this._tagName; }
     getContent() { return this._content; }
+    getAttribute() { return this._attr; }
     content(value) {
         this._content = value;
         return this;
@@ -52,11 +55,17 @@ class HtmlTag {
         }
         return this._parent;
     }
+    addAttribute(name, value) {
+        this._attr[name] = value;
+        return this;
+    }
+    get attr() { return this._attrs; }
     toJson() {
         let appendJson = (tag) => {
             let curr = {
                 "<>": tag.tagName,
                 "content": tag.getContent(),
+                "attribute": tag.getAttribute(),
                 "children": []
             }
             tag.children.forEach(child => {
@@ -94,8 +103,19 @@ class HtmlBuilder {
         }
         return el;
     }
+    /**
+     * set attribute from tagObj to target elelemt.
+     * @param {HtmlTag} tagObj 
+     * @param {HTMLElement} el 
+     */
+    static setAttribute(tagObj, el) {
+        let attr = tagObj.attribute;
+        let keys = Object.keys(attr);
+        keys.forEach(key => { el.setAttribute(key, attr[key]) } );
+    }
     static createElement(tagObj) {
         let el = HtmlBuilder.createTextElement(tagObj);
+        HtmlBuilder.setAttribute(tagObj, el);
         tagObj.children.forEach(childObj => {
             let childElm = HtmlBuilder.createElement(childObj);
             el.appendChild(childElm);
@@ -251,6 +271,38 @@ class HtmlTags {
 // - Class to generate HTML styles (model).
 
 // - Class to generate HTML attributes (model).
+class HtmlAttribute { }
+
+HtmlAttribute.src = class {
+    static set(parent, value) { parent.addAttribute('src', value) }
+}
+
+HtmlAttribute.width = class {
+    static set(parent, value) { parent.addAttribute('width', value) }
+}
+
+HtmlAttribute.height = class {
+    static set(parent, value) { parent.addAttribute('height', value) }
+} 
+
+class HtmlAttributes {
+    constructor(parent) {
+        this._parent = parent;
+    }
+    src(value) {
+        HtmlAttribute.src.set(this._parent, value);
+        return this;
+    }
+    height(value) {
+        HtmlAttribute.height.set(this._parent, value);
+        return this;
+    }
+    width(value) {
+        HtmlAttribute.width.set(this._parent, value);
+        return this;
+    }
+    get end() { return this._parent; }
+}
 
 // - Class to generate HTML events (model).
 
@@ -288,6 +340,15 @@ class HtmlTags {
         .add.div.content('FIRST')
             .add.h2.content('This is test H2').end
             .add.h3.content('This is test H3').end
+        .end
+        .add.div
+            .add.img.attr
+                .src('image.png')
+                .width('auto')
+                .height(100)
+                .end
+            .end
+            .add.h3.content('This is image').end
         .end
         .add.p.content('This is test ')
             .add.i.content(' "show the italic message"').end
