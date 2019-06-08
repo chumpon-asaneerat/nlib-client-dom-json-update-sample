@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/chumpon-asaneerat/nlib-client-dom-json-update-sample#readme",
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-insert": "^0.5.0"
   }
 }
