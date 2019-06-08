@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/chumpon-asaneerat/nlib-client-dom-json-update-sample/issues"
   },
-  "homepage": "https://github.com/chumpon-asaneerat/nlib-client-dom-json-update-sample#readme"
+  "homepage": "https://github.com/chumpon-asaneerat/nlib-client-dom-json-update-sample#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
 }
