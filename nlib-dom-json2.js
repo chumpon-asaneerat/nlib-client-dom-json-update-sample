@@ -18,11 +18,8 @@
 //?  required machanism to unbind events before reload model. 
 //?  Reimplement HtmlTag in seperated files (1 file per tag). 
 //?  Reimplement individual HtmlTag to has its own attribute.
-//?  supports 
-//?  supports 
-//?  supports 
-//$  supports 
-//$  supports 
+//?  supports class List.
+
 class HtmlTag {
     constructor(tagName, parent) {
         this._tagName = tagName;
@@ -131,10 +128,6 @@ class HtmlBuilder {
 // - Class to wrap HTML individual Tags.
 //*  supports nearly all HTML individual Tags.
 //?  Re-implements HTMLElement inherited classes based on WebAPI document. 
-//?  supports 
-//?  supports 
-//$  supports 
-//$  supports 
 class HtmlTags {
     constructor(parent) {
         this._parent = parent;
@@ -269,19 +262,7 @@ class HtmlTags {
     get wbr() { return new HtmlTag('wbr', this._parent) };
 }
 
-// - Class mixin methods.
-//?  supports 
-//$  supports 
-class ClassMixin {}
-
-// - Class to generate HTML styles (model).
-//?  supports 
-//$  supports 
-class HtmlCss {}
-
 // - Class to generate HTML attributes (model).
-//?  supports 
-//$  supports 
 class HtmlAttribute { }
 
 HtmlAttribute.src = class {

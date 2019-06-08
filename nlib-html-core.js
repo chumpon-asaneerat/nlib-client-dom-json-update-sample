@@ -19,6 +19,19 @@ NHtml.Model.Tag = class {
     get tagName() { return this['<>']; }
     set tagName(value) { this['<>'] = value; }
 }
+
+//$ Class to create HTML Tag element.
+//*  + supports access tagname, parent, content.
+//*  + supports fluent interface.
+//*  + supports generate Json string (for save later).
+//*  + implements Html Tag in seperated files (1 file per tag).
+//*  + supports attribute.
+//?  + supports builder to create HTML element dom model and render to html element.
+//?  + supports bind between Tag Model and generated HTML dom element model.
+//?  + supports event invoke when detected changed Tag model.
+//?  + supports class List.
+//?  + supports load Json string for rebuild Html Tag model.
+
 /** The HTML Tag class. */
 NHtml.Tag = class {
     /**
@@ -78,6 +91,9 @@ NHtml.Tag.Tags = class {
         this.parent = parent;
     }
 }
+
+//$ Class to create HTML Attribute element.
+//*  + supports fluent interface.
 
 /** The NHtml.Attribute namespace. */
 NHtml.Attribute = class { }
