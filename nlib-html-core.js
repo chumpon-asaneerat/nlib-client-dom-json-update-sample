@@ -2,14 +2,12 @@
 class NHtml {}
 /** The NHtml.Model namespace. */
 NHtml.Model = class {}
-/** The NHtml.Model.Data namespace. */
-NHtml.Model.Data = class {}
-/** The Html Tag Data Model class. */
-NHtml.Model.Data.Tag = class {
-    /** Create new instace of Html Tag Data Model. */
+/** The Html Tag Model class. */
+NHtml.Model.Tag = class {
+    /** Create new instace of Html Tag Model. */
     constructor() {
         /** The tag name. */
-        this.tagName = '';
+        this['<>'] = '';
         /** The tag attribute. */
         this.attribute = {};
         /** The content data. */
@@ -17,22 +15,9 @@ NHtml.Model.Data.Tag = class {
         /** The child elements array. */
         this.children = [];
     }
-}
-/** The NHtml.Model.Json namespace. */
-NHtml.Model.Json = class {}
-/** The Html Tag Json Model class. */
-NHtml.Model.Json.Tag = class {
-    /** Create new instance of Html Tag Json Model. */
-    constructor() {
-        /** The tag name. */
-        this["<>"] = '';
-        /** The tag attribute. */
-        this.attribute = {};
-        /** The content data. */
-        this.content = '';
-        /** The child elements array. */
-        this.children = [];
-    }
+
+    get tagName() { return this['<>']; }
+    set tagName(value) { this['<>'] = value; }
 }
 /** The HTML Tag class. */
 NHtml.Tag = class {
@@ -43,10 +28,13 @@ NHtml.Tag = class {
     constructor(parent) {
         /** @type {NHtml.Tag} The parent tag object. */
         this.parent = parent;
-        /** @type {NHtml.Model.Data.Tag} The tag data model object. */
-        this.data = new NHtml.Model.Data.Tag();
+        /** @type {NHtml.Model.Tag} The tag data model object. */
+        this.data = new NHtml.Model.Tag();
 
-        this._tags = new NHtml.Tag.Tags(this); // setup child tags's parent to current object.
+        // setup child tags's parent to current object.
+        this._tags = new NHtml.Tag.Tags(this);
+        // setup attributes's parent to current object.
+        this._attrs = new NHtml.Attribute.Attributes(this);
     }
     /** Gets tag name. */
     get tagName() { return this.data.tagName; }
@@ -67,9 +55,8 @@ NHtml.Tag = class {
         this.data.attribute[name.toLowerCase()] = value;
         return this;
     }
-    get add() {
-        return this._tags;
-    }
+    get add() { return this._tags; }
+    get attr() { return this._attrs; }
     get end() {
         if (this.parent) {
             // append to parent array.
@@ -80,7 +67,30 @@ NHtml.Tag = class {
     /** Gets json data model in string. */
     toJson() { return JSON.stringify(this.data, null, 4); }
 }
-/** Constant tags references */
-NHtml.Tag.Tags = function(parent) {
-    this.parent = parent;
-};
+/** Dynamic tags class */
+NHtml.Tag.Tags = class {
+    /**
+     * Create new instance of NHtml.Tag.Tags class.
+     * @param {NHtml.Tag} parent The parent tag instance.
+     */
+    constructor(parent) {
+        /** @type {NHtml.Tag} The parent tag object. */
+        this.parent = parent;
+    }
+}
+
+/** The NHtml.Attribute namespace. */
+NHtml.Attribute = class { }
+/** Dynamic attrubutes class */
+NHtml.Attribute.Attributes = class {
+    /**
+     * Create new instance of NHtml.Attribute.Attributes class.
+     * @param {NHtml.Tag} parent The parent tag instance.
+     */
+    constructor(parent) {
+        /** @type {NHtml.Tag} The parent tag object. */
+        this.parent = parent;
+    }
+    /** end setting attribute. */
+    get end() { return this.parent; }
+}

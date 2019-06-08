@@ -315,28 +315,8 @@ class HtmlAttributes {
     get end() { return this._parent; }
 }
 
-// - Class to generate HTML events (model).
-//?  supports 
-//$  supports 
-
-
-// - Sample Class for test access internal fields. Used for seperated internal HtmlTag data
-// into another class for easy to changed its content.
-class dataX {
-    constructor() {
-        this.value = 1;
-        this.name = 'sample'
-    }
-}
-
-function testX() {
-    let x = new dataX();
-    console.log(`x: name:${x.name}, value:${x.value}`);
-}
-
 (() => {
     console.clear();
-    testX();
     /*
     // use append method
     console.log('generate model json.');
