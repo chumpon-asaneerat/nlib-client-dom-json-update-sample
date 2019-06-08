@@ -1,0 +1,19 @@
+{
+  "name": "nlib-client-dom-json-update-sample",
+  "version": "1.0.0",
+  "description": "The NLib Client - dom and json model sync sample",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chumpon-asaneerat/nlib-client-dom-json-update-sample.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chumpon-asaneerat/nlib-client-dom-json-update-sample/issues"
+  },
+  "homepage": "https://github.com/chumpon-asaneerat/nlib-client-dom-json-update-sample#readme"
+}
