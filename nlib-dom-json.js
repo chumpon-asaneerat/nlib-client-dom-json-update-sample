@@ -10,7 +10,6 @@
             .content('The end div')
         .end
 
-    //console.log(model2.data);
-    
-    console.log(JSON.stringify(model2.data, null, 2));
+    //console.log(model2.data);    
+    console.log(model2.toJson());
 })();

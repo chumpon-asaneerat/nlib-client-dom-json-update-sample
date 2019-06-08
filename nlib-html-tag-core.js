@@ -77,6 +77,8 @@ NHtml.Tag = class {
         }
         return this.parent;
     }
+    /** Gets json data model in string. */
+    toJson() { return JSON.stringify(this.data, null, 4); }
 }
 /** Constant tags references */
 NHtml.Tag.Tags = function(parent) {
