@@ -34,28 +34,51 @@ NHtml.Model.Json.Tag = class {
         this.children = [];
     }
 }
-
-
-/**
- * The HTML Tag class.
- */
+/** The HTML Tag class. */
 NHtml.Tag = class {
     /**
      * Create new Html Tag instance.
      * @param {NHtml.Tag} parent The parent tag object.
      */
     constructor(parent) {
-        this._parent = parent;
-        this._data = new NHtml.Model.Data.Tag();
+        /** @type {NHtml.Tag} The parent tag object. */
+        this.parent = parent;
+        /** @type {NHtml.Model.Data.Tag} The tag data model object. */
+        this.data = new NHtml.Model.Data.Tag();
+
+        this._tags = new NHtml.Tag.Tags(this); // setup child tags's parent to current object.
+    }
+    /** Gets tag name. */
+    get tagName() { return this.data.tagName; }
+    /**
+     * set tag content value.
+     * @param {*} value The content value.
+     */
+    content(value) {
+        this.data.content = value;
+        return this;
     }
     /**
-     * Gets parent tag.
-     * @returns {NHtml.Tag} The parent tag object.
+     * set tag attribute.
+     * @param {String} name The attribute name.
+     * @param {*} value The attribute value.
      */
-    get parent() { return this._parent; }
-    /**
-     * Gets tag data model instance.
-     * @returns {NHtml.Model.Data.Tag} The tag data model object.
-     */
-    get data() { return this._data; }
+    attribute(name, value) { 
+        this.data.attribute[name.toLowerCase()] = value;
+        return this;
+    }
+    get add() {
+        return this._tags;
+    }
+    get end() {
+        if (this.parent) {
+            // append to parent array.
+            this.parent.data.children.push(this.data);
+        }
+        return this.parent;
+    }
 }
+/** Constant tags references */
+NHtml.Tag.Tags = function(parent) {
+    this.parent = parent;
+};

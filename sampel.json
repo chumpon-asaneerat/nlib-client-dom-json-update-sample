@@ -1,0 +1,21 @@
+{
+    "tagName": "div",
+    "attribute": {},
+    "content": "This is div",
+    "children": [
+        {
+            "tagName": "img",
+            "attribute": {
+                "src": "image.png"
+            },
+            "content": "",
+            "children": []
+        },
+        {
+            "tagName": "div",
+            "attribute": {},
+            "content": "The end div",
+            "children": []
+        }
+    ]
+}
