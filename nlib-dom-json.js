@@ -40,7 +40,7 @@ class HtmlTag {
     }
     get parent() { return this._parent; }
     /**
-     * 
+     * Add HTML Tag with specificed tag name.
      * @param {string} tagName The HTML Tag Name.
      */
     addTag(tagName) { return new HtmlTag(tagName, this); }
@@ -75,6 +75,9 @@ class HtmlTag {
     static create(tagName) { return new HtmlTag(tagName, null); }
 }
 
+// - Class for build HTML related dom element.
+//#  warning createElement and createTextElement method need to redesign for more practical used.
+//?  supports 
 class HtmlBuilder {
     static createTextElement(tagObj) {
         let tagName = tagObj['<>'].toLowerCase();
