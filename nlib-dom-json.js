@@ -270,10 +270,18 @@ class HtmlTags {
 }
 
 // - Class mixin methods.
+//?  supports 
+//$  supports 
+class ClassMixin {}
 
 // - Class to generate HTML styles (model).
+//?  supports 
+//$  supports 
+class HtmlCss {}
 
 // - Class to generate HTML attributes (model).
+//?  supports 
+//$  supports 
 class HtmlAttribute { }
 
 HtmlAttribute.src = class {
@@ -308,10 +316,27 @@ class HtmlAttributes {
 }
 
 // - Class to generate HTML events (model).
+//?  supports 
+//$  supports 
 
+
+// - Sample Class for test access internal fields. Used for seperated internal HtmlTag data
+// into another class for easy to changed its content.
+class dataX {
+    constructor() {
+        this.value = 1;
+        this.name = 'sample'
+    }
+}
+
+function testX() {
+    let x = new dataX();
+    console.log(`x: name:${x.name}, value:${x.value}`);
+}
 
 (() => {
-    console.clear();    
+    console.clear();
+    testX();
     /*
     // use append method
     console.log('generate model json.');
@@ -363,3 +388,4 @@ class HtmlAttributes {
     let el = model2.render();
     appElem.appendChild(el);
 })();
+
