@@ -30,6 +30,7 @@ NHtml.Model.Tag = class {
 //?  + supports class List.
 //?  + supports css style.
 //?  + supports builder to create HTML element dom model and render to html element.
+//?  + supports mapping machanism to access generate html element to current json model.
 //?  + supports bind between Tag Model and generated HTML dom element model.
 //?  + supports event invoke when detected changed Tag model.
 //?  + supports load Json string for rebuild Html Tag model.
