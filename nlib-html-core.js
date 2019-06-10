@@ -27,10 +27,11 @@ NHtml.Model.Tag = class {
 //*  + implements Html Tag in seperated files (1 file per tag).
 //*  + supports attribute.
 //?  + Reimplement content -> use #text tag node instead (append to children array) all case.
+//?  + supports class List.
+//?  + supports css style.
 //?  + supports builder to create HTML element dom model and render to html element.
 //?  + supports bind between Tag Model and generated HTML dom element model.
 //?  + supports event invoke when detected changed Tag model.
-//?  + supports class List.
 //?  + supports load Json string for rebuild Html Tag model.
 
 /** The HTML Tag class. */
