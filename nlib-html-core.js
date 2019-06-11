@@ -26,6 +26,7 @@ NHtml.Model.Tag = class {
 //*  + supports generate Json string (for save later).
 //*  + implements Html Tag in seperated files (1 file per tag).
 //*  + supports attribute.
+//?  + Reimplement new class to add/remove child tag model.
 //?  + Reimplement content -> use #text tag node instead (append to children array) all case.
 //?  + supports class List.
 //?  + supports css style.
