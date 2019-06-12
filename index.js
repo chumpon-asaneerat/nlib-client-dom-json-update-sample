@@ -47,7 +47,11 @@ let tags = [
     // n tags.
     //'nav', 'noscript', 
     // o tags.
-    'object', 'ol', 'optgroup', 'option', 'output',
+    //'object', 'ol', 'optgroup', 'option', 'output',
+    // p tags.
+    'p', 'param', 'picture', 'pre', 'progress', 
+    // q tags.
+    'q',
 ]
 
 
