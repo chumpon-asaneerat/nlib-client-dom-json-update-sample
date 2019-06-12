@@ -56,10 +56,15 @@ let tags = [
     //'s', 'samp', 'script', 'section', 'select', 'small', 'source', 'span', 'strong', 
     //'style', 'sub', 'summary', 'sup', 'svg', 
     // t tags.
-    'table', 'tbody', 'td', 'template', 'textarea', 'tfoot', 'th', 'thead', 'time', 
-    'title', 'tr', 'track',
+    //'table', 'tbody', 'td', 'template', 'textarea', 'tfoot', 'th', 'thead', 'time', 
+    //'title', 'tr', 'track',
+    // u tags.
+    'u', 'ul', 
+    // v tags.
+    'var', 'video',
+    // w tags.
+    'wbr'
 ]
-
 
 tags.forEach(tag => {
     console.log(`generate file for tag: ${tag}`);
