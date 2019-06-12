@@ -43,8 +43,11 @@ let tags = [
     // l tags.
     //'label', 'legend', 'li', 'link', 
     // m tags.
-    'main', 'map', 'mark', 'meta', 'meter',
+    //'main', 'map', 'mark', 'meta', 'meter',
+    // n tags.
+    'nav', 'noscript', 
 ]
+
 tags.forEach(tag => {
     console.log(`generate file for tag: ${tag}`);
     compileTmpl = tagTmplFn({tagName: tag});
