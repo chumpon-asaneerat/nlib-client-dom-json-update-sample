@@ -95,4 +95,15 @@ tags.forEach(tag => {
 console.log(sriptText);
 */
 
+// Generate array for paste in gulpfile.js
+/*
+let gulpArrTmpl = `'nlib-html-tag-{{=it.tagName}}.js',`
+let gulpArrTmplFn = dot.template(gulpArrTmpl.toString());
+let arrText = ''
+tags.forEach(tag => {
+    arrText = arrText + gulpArrTmplFn({tagName: tag}) + '\n';
+});
+console.log(arrText);
+*/
+
 console.log('finished..generate js file for HTML tags.')
