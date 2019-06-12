@@ -45,8 +45,11 @@ let tags = [
     // m tags.
     //'main', 'map', 'mark', 'meta', 'meter',
     // n tags.
-    'nav', 'noscript', 
+    //'nav', 'noscript', 
+    // o tags.
+    'object', 'ol', 'optgroup', 'option', 'output',
 ]
+
 
 tags.forEach(tag => {
     console.log(`generate file for tag: ${tag}`);
