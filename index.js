@@ -25,7 +25,9 @@ let tags = [
     // a tags.
     //'a', 'abbr', 'address', 'area', 'article', 'aside', 'audio',
     // b tags.
-    'b', 'base', 'bdi', 'bdo', 'blockquote', 'body', 'br', 'button',
+    // 'b', 'base', 'bdi', 'bdo', 'blockquote', 'body', 'br', 'button',
+    // c tags.
+    'canvas', 'caption', 'center', 'code', 'col', 'colgroup',
     //'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
 ]
 tags.forEach(tag => {
