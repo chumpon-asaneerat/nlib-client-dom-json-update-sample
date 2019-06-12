@@ -53,8 +53,11 @@ let tags = [
     // q tags.
     //'q',
     // s tags.
-    's', 'samp', 'script', 'section', 'select', 'small', 'source', 'span', 'strong', 
-    'style', 'sub', 'summary', 'sup', 'svg', 
+    //'s', 'samp', 'script', 'section', 'select', 'small', 'source', 'span', 'strong', 
+    //'style', 'sub', 'summary', 'sup', 'svg', 
+    // t tags.
+    'table', 'tbody', 'td', 'template', 'textarea', 'tfoot', 'th', 'thead', 'time', 
+    'title', 'tr', 'track',
 ]
 
 
