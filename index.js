@@ -21,7 +21,6 @@ Object.defineProperty(NHtml.Tag.Tags.prototype, '{{=it.tagName}}', {
 let tagTmplFn = dot.template(tagTmpl.toString());
 let compileTmpl, jsText;
 
-
 let tags = [
     // a tags.
     //'a', 'abbr', 'address', 'area', 'article', 'aside', 'audio',
@@ -34,8 +33,10 @@ let tags = [
     // e tags.
     //'em', 'embed',
     // f tags.
-    'fieldset', 'figcaption', 'figure', 'footer', 'form',
-    //'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+    //'fieldset', 'figcaption', 'figure', 'footer', 'form',
+    // h tags.
+    //'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+    'head', 'header', 'hr', 'html', 
 ]
 tags.forEach(tag => {
     console.log(`generate file for tag: ${tag}`);
