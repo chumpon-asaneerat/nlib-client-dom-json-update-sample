@@ -20,7 +20,10 @@ Object.defineProperty(NHtml.Tag.Tags.prototype, '{{=it.tagName}}', {
 
 let tagTmplFn = dot.template(tagTmpl.toString());
 let compileTmpl, jsText;
+
 let tags = [
+    // a tags.
+    //'a', 'abbr', 'address', 'area', 'article', 'aside', 'audio'
     //'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
 ]
 tags.forEach(tag => {
