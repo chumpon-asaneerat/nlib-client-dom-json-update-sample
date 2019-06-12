@@ -7,6 +7,7 @@ NHtml.Tag.track = class extends NHtml.Tag {
         return new NHtml.Tag.track(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'track', {
     get() {
         return NHtml.Tag.track.create(this.parent);

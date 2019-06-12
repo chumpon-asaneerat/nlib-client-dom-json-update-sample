@@ -7,6 +7,7 @@ NHtml.Tag.address = class extends NHtml.Tag {
         return new NHtml.Tag.address(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'address', {
     get() {
         return NHtml.Tag.address.create(this.parent);

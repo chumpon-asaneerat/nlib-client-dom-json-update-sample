@@ -7,6 +7,7 @@ NHtml.Tag.datalist = class extends NHtml.Tag {
         return new NHtml.Tag.datalist(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'datalist', {
     get() {
         return NHtml.Tag.datalist.create(this.parent);

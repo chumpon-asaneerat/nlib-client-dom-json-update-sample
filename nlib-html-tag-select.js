@@ -7,6 +7,7 @@ NHtml.Tag.select = class extends NHtml.Tag {
         return new NHtml.Tag.select(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'select', {
     get() {
         return NHtml.Tag.select.create(this.parent);

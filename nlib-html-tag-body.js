@@ -7,6 +7,7 @@ NHtml.Tag.body = class extends NHtml.Tag {
         return new NHtml.Tag.body(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'body', {
     get() {
         return NHtml.Tag.body.create(this.parent);

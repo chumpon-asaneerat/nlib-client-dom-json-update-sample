@@ -7,6 +7,7 @@ NHtml.Tag.ul = class extends NHtml.Tag {
         return new NHtml.Tag.ul(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'ul', {
     get() {
         return NHtml.Tag.ul.create(this.parent);

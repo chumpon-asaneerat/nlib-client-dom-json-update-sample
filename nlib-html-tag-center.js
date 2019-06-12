@@ -7,6 +7,7 @@ NHtml.Tag.center = class extends NHtml.Tag {
         return new NHtml.Tag.center(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'center', {
     get() {
         return NHtml.Tag.center.create(this.parent);

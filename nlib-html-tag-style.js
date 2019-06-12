@@ -7,6 +7,7 @@ NHtml.Tag.style = class extends NHtml.Tag {
         return new NHtml.Tag.style(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'style', {
     get() {
         return NHtml.Tag.style.create(this.parent);

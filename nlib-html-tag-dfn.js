@@ -7,6 +7,7 @@ NHtml.Tag.dfn = class extends NHtml.Tag {
         return new NHtml.Tag.dfn(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'dfn', {
     get() {
         return NHtml.Tag.dfn.create(this.parent);

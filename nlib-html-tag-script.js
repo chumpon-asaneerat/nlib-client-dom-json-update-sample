@@ -7,6 +7,7 @@ NHtml.Tag.script = class extends NHtml.Tag {
         return new NHtml.Tag.script(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'script', {
     get() {
         return NHtml.Tag.script.create(this.parent);

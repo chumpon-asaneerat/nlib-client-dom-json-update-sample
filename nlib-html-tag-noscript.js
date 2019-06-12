@@ -7,6 +7,7 @@ NHtml.Tag.noscript = class extends NHtml.Tag {
         return new NHtml.Tag.noscript(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'noscript', {
     get() {
         return NHtml.Tag.noscript.create(this.parent);

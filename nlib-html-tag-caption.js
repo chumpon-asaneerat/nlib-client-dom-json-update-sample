@@ -7,6 +7,7 @@ NHtml.Tag.caption = class extends NHtml.Tag {
         return new NHtml.Tag.caption(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'caption', {
     get() {
         return NHtml.Tag.caption.create(this.parent);

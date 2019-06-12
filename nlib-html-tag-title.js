@@ -7,6 +7,7 @@ NHtml.Tag.title = class extends NHtml.Tag {
         return new NHtml.Tag.title(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'title', {
     get() {
         return NHtml.Tag.title.create(this.parent);

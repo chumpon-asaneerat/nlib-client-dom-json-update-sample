@@ -7,6 +7,7 @@ NHtml.Tag.video = class extends NHtml.Tag {
         return new NHtml.Tag.video(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'video', {
     get() {
         return NHtml.Tag.video.create(this.parent);

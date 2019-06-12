@@ -7,6 +7,7 @@ NHtml.Tag.var = class extends NHtml.Tag {
         return new NHtml.Tag.var(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'var', {
     get() {
         return NHtml.Tag.var.create(this.parent);

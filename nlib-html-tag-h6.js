@@ -7,6 +7,7 @@ NHtml.Tag.h6 = class extends NHtml.Tag {
         return new NHtml.Tag.h6(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'h6', {
     get() {
         return NHtml.Tag.h6.create(this.parent);

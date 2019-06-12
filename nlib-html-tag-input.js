@@ -7,6 +7,7 @@ NHtml.Tag.input = class extends NHtml.Tag {
         return new NHtml.Tag.input(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'input', {
     get() {
         return NHtml.Tag.input.create(this.parent);

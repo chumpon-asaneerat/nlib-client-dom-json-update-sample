@@ -7,6 +7,7 @@ NHtml.Tag.legend = class extends NHtml.Tag {
         return new NHtml.Tag.legend(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'legend', {
     get() {
         return NHtml.Tag.legend.create(this.parent);

@@ -7,6 +7,7 @@ NHtml.Tag.tbody = class extends NHtml.Tag {
         return new NHtml.Tag.tbody(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'tbody', {
     get() {
         return NHtml.Tag.tbody.create(this.parent);

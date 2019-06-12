@@ -3,6 +3,8 @@
 // 2. type: node index.js
 
 const dot = require('dot');
+dot.templateSettings.strip = false; // preserve space.
+
 const beautify = require('js-beautify').js
 const fs = require('fs');
 
@@ -76,7 +78,7 @@ tags.forEach(tag => {
     console.log(`generate file for tag: ${tag}`);
     compileTmpl = tagTmplFn({tagName: tag});
     jsText = beautify(compileTmpl, { indent_size: 4, space_in_empty_paren: true });
-    fs.writeFileSync(`./nlib-html-tag-${tag}.js`, jsText);
+    fs.writeFileSync(`./nlib-html-tag-${tag}.js`, jsText + '\n');
 });
 */
 

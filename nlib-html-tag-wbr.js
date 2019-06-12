@@ -7,6 +7,7 @@ NHtml.Tag.wbr = class extends NHtml.Tag {
         return new NHtml.Tag.wbr(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'wbr', {
     get() {
         return NHtml.Tag.wbr.create(this.parent);

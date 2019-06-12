@@ -7,6 +7,7 @@ NHtml.Tag.map = class extends NHtml.Tag {
         return new NHtml.Tag.map(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'map', {
     get() {
         return NHtml.Tag.map.create(this.parent);

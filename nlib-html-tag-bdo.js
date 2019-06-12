@@ -7,6 +7,7 @@ NHtml.Tag.bdo = class extends NHtml.Tag {
         return new NHtml.Tag.bdo(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'bdo', {
     get() {
         return NHtml.Tag.bdo.create(this.parent);

@@ -7,6 +7,7 @@ NHtml.Tag.progress = class extends NHtml.Tag {
         return new NHtml.Tag.progress(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'progress', {
     get() {
         return NHtml.Tag.progress.create(this.parent);

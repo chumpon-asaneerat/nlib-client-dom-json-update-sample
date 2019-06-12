@@ -7,6 +7,7 @@ NHtml.Tag.aside = class extends NHtml.Tag {
         return new NHtml.Tag.aside(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'aside', {
     get() {
         return NHtml.Tag.aside.create(this.parent);

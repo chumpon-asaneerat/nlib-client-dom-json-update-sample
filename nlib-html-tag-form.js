@@ -7,6 +7,7 @@ NHtml.Tag.form = class extends NHtml.Tag {
         return new NHtml.Tag.form(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'form', {
     get() {
         return NHtml.Tag.form.create(this.parent);

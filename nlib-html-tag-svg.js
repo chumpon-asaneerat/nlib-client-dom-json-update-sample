@@ -7,6 +7,7 @@ NHtml.Tag.svg = class extends NHtml.Tag {
         return new NHtml.Tag.svg(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'svg', {
     get() {
         return NHtml.Tag.svg.create(this.parent);

@@ -7,6 +7,7 @@ NHtml.Tag.sup = class extends NHtml.Tag {
         return new NHtml.Tag.sup(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'sup', {
     get() {
         return NHtml.Tag.sup.create(this.parent);

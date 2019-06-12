@@ -7,6 +7,7 @@ NHtml.Tag.del = class extends NHtml.Tag {
         return new NHtml.Tag.del(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'del', {
     get() {
         return NHtml.Tag.del.create(this.parent);

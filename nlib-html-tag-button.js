@@ -7,6 +7,7 @@ NHtml.Tag.button = class extends NHtml.Tag {
         return new NHtml.Tag.button(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'button', {
     get() {
         return NHtml.Tag.button.create(this.parent);

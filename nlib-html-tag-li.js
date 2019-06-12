@@ -7,6 +7,7 @@ NHtml.Tag.li = class extends NHtml.Tag {
         return new NHtml.Tag.li(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'li', {
     get() {
         return NHtml.Tag.li.create(this.parent);

@@ -7,6 +7,7 @@ NHtml.Tag.colgroup = class extends NHtml.Tag {
         return new NHtml.Tag.colgroup(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'colgroup', {
     get() {
         return NHtml.Tag.colgroup.create(this.parent);

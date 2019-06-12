@@ -7,6 +7,7 @@ NHtml.Tag.meter = class extends NHtml.Tag {
         return new NHtml.Tag.meter(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'meter', {
     get() {
         return NHtml.Tag.meter.create(this.parent);

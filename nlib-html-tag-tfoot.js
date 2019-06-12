@@ -7,6 +7,7 @@ NHtml.Tag.tfoot = class extends NHtml.Tag {
         return new NHtml.Tag.tfoot(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'tfoot', {
     get() {
         return NHtml.Tag.tfoot.create(this.parent);

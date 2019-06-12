@@ -7,6 +7,7 @@ NHtml.Tag.mark = class extends NHtml.Tag {
         return new NHtml.Tag.mark(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'mark', {
     get() {
         return NHtml.Tag.mark.create(this.parent);

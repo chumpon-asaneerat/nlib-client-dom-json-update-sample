@@ -7,6 +7,7 @@ NHtml.Tag.time = class extends NHtml.Tag {
         return new NHtml.Tag.time(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'time', {
     get() {
         return NHtml.Tag.time.create(this.parent);

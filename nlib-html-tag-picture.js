@@ -7,6 +7,7 @@ NHtml.Tag.picture = class extends NHtml.Tag {
         return new NHtml.Tag.picture(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'picture', {
     get() {
         return NHtml.Tag.picture.create(this.parent);

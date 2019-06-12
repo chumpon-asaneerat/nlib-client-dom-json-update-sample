@@ -7,6 +7,7 @@ NHtml.Tag.blockquote = class extends NHtml.Tag {
         return new NHtml.Tag.blockquote(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'blockquote', {
     get() {
         return NHtml.Tag.blockquote.create(this.parent);

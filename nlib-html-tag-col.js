@@ -7,6 +7,7 @@ NHtml.Tag.col = class extends NHtml.Tag {
         return new NHtml.Tag.col(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'col', {
     get() {
         return NHtml.Tag.col.create(this.parent);

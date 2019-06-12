@@ -7,6 +7,7 @@ NHtml.Tag.section = class extends NHtml.Tag {
         return new NHtml.Tag.section(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'section', {
     get() {
         return NHtml.Tag.section.create(this.parent);

@@ -7,6 +7,7 @@ NHtml.Tag.pre = class extends NHtml.Tag {
         return new NHtml.Tag.pre(parent);
     }
 }
+
 Object.defineProperty(NHtml.Tag.Tags.prototype, 'pre', {
     get() {
         return NHtml.Tag.pre.create(this.parent);
