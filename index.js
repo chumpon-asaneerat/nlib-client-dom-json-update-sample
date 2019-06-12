@@ -41,7 +41,9 @@ let tags = [
     // k tags.
     //'kbd',
     // l tags.
-    'label', 'legend', 'li', 'link', 
+    //'label', 'legend', 'li', 'link', 
+    // m tags.
+    'main', 'map', 'mark', 'meta', 'meter',
 ]
 tags.forEach(tag => {
     console.log(`generate file for tag: ${tag}`);
