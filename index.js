@@ -23,41 +23,41 @@ let compileTmpl, jsText;
 
 let tags = [
     // a tags.
-    //'a', 'abbr', 'address', 'area', 'article', 'aside', 'audio',
+    'a', 'abbr', 'address', 'area', 'article', 'aside', 'audio',
     // b tags.
-    // 'b', 'base', 'bdi', 'bdo', 'blockquote', 'body', 'br', 'button',
+     'b', 'base', 'bdi', 'bdo', 'blockquote', 'body', 'br', 'button',
     // c tags.
-    //'canvas', 'caption', 'center', 'code', 'col', 'colgroup',
+    'canvas', 'caption', 'center', 'code', 'col', 'colgroup',
     // d tags.
-    //'data', 'datalist', 'dd', 'del', 'details', 'dfn', 'dialog', 'div', 'dl', 'dt',
+    'data', 'datalist', 'dd', 'del', 'details', 'dfn', 'dialog', 'div', 'dl', 'dt',
     // e tags.
-    //'em', 'embed',
+    'em', 'embed',
     // f tags.
-    //'fieldset', 'figcaption', 'figure', 'footer', 'form',
+    'fieldset', 'figcaption', 'figure', 'footer', 'form',
     // h tags.
-    //'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hr', 'html', 
+    'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hr', 'html', 
     // i tags.
-    //'i', 'iframe', 'img',  'input', 'ins',
+    'i', 'iframe', 'img',  'input', 'ins',
     // k tags.
-    //'kbd',
+    'kbd',
     // l tags.
-    //'label', 'legend', 'li', 'link', 
+    'label', 'legend', 'li', 'link', 
     // m tags.
-    //'main', 'map', 'mark', 'meta', 'meter',
+    'main', 'map', 'mark', 'meta', 'meter',
     // n tags.
-    //'nav', 'noscript', 
+    'nav', 'noscript', 
     // o tags.
-    //'object', 'ol', 'optgroup', 'option', 'output',
+    'object', 'ol', 'optgroup', 'option', 'output',
     // p tags.
-    //'p', 'param', 'picture', 'pre', 'progress', 
+    'p', 'param', 'picture', 'pre', 'progress', 
     // q tags.
-    //'q',
+    'q',
     // s tags.
-    //'s', 'samp', 'script', 'section', 'select', 'small', 'source', 'span', 'strong', 
-    //'style', 'sub', 'summary', 'sup', 'svg', 
+    's', 'samp', 'script', 'section', 'select', 'small', 'source', 'span', 'strong', 
+    'style', 'sub', 'summary', 'sup', 'svg', 
     // t tags.
-    //'table', 'tbody', 'td', 'template', 'textarea', 'tfoot', 'th', 'thead', 'time', 
-    //'title', 'tr', 'track',
+    'table', 'tbody', 'td', 'template', 'textarea', 'tfoot', 'th', 'thead', 'time', 
+    'title', 'tr', 'track',
     // u tags.
     'u', 'ul', 
     // v tags.
@@ -66,12 +66,24 @@ let tags = [
     'wbr'
 ]
 
+/*
 tags.forEach(tag => {
     console.log(`generate file for tag: ${tag}`);
     compileTmpl = tagTmplFn({tagName: tag});
     jsText = beautify(compileTmpl, { indent_size: 4, space_in_empty_paren: true });
-    //console.log(jsText);
     fs.writeFileSync(`./nlib-html-tag-${tag}.js`, jsText);
 });
+*/
+
+let scriptTmpl = `
+    <script src="nlib-html-tag-{{=it.tagName}}.js" type=""></script>
+`
+let scriptTmplFn = dot.template(scriptTmpl.toString());
+let sriptText = ''
+tags.forEach(tag => {
+    sriptText = sriptText + scriptTmplFn({tagName: tag}) + '\n';
+});
+console.log(sriptText);
+
 
 console.log('finished..generate js file for HTML tags.')
