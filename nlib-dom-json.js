@@ -2,13 +2,14 @@
     console.clear();
 
     let model2 = new NHtml.Tag.div();
-    model2.content('This is div')
+    model2
+        .add.h1.content('Header 1').end
         .add.img
-            .attribute('alt', 'This is image.')
-            .attr
-                .src('image.png')
-                .width('auto')
-                .height(100)
+                .attribute('alt', 'This is image.')
+                .attr
+                    .src('image.png')
+                    .width('auto')
+                    .height(100)
             .end
         .end
         .add.div
