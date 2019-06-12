@@ -26,11 +26,10 @@ NHtml.Model.Tag = class {
 //*  + supports generate Json string (for save later).
 //*  + implements Html Tag in seperated files (1 file per tag).
 //*  + supports attribute.
+//*  + supports builder to create HTML element dom model and render to html element.
 //?  + Reimplement new class to add/remove child tag model.
-//?  + Reimplement content -> use #text tag node instead (append to children array) all case.
 //?  + supports class List.
 //?  + supports css style.
-//?  + supports builder to create HTML element dom model and render to html element.
 //?  + supports mapping machanism to access generate html element to current json model.
 //?  + supports bind between Tag Model and generated HTML dom element model.
 //?  + supports event invoke when detected changed Tag model.
@@ -83,6 +82,8 @@ NHtml.Tag = class {
     }
     /** Gets json data model in string. */
     toJson() { return JSON.stringify(this.data, null, 4); }
+
+    render() { return NHtml.Builder.createElement(this.data); }
 }
 /** Dynamic tags class */
 NHtml.Tag.Tags = class {
@@ -113,4 +114,28 @@ NHtml.Attribute.Attributes = class {
     }
     /** end setting attribute. */
     get end() { return this.parent; }
+}
+
+NHtml.Builder = class {
+    static setAttribute(tagModel, el) {
+        let attr = tagModel.attribute;
+        let keys = Object.keys(attr);
+        keys.forEach(key => { el.setAttribute(key, attr[key]) } );
+    }
+    static createElement(tagModel) {
+        let tagName = tagModel["<>"].toLowerCase();
+        let el = document.createElement(tagName);
+        NHtml.Builder.setAttribute(tagModel, el);
+
+        if (tagModel.content && tagModel.content !== '') {
+            el.appendChild(document.createTextNode(tagModel.content));
+        }
+
+        tagModel.children.forEach(childObj => {
+            let childElm = NHtml.Builder.createElement(childObj);
+            el.appendChild(childElm);
+        });
+
+        return el;
+    }
 }

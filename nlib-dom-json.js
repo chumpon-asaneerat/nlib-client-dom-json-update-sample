@@ -16,5 +16,8 @@
         .end
 
     //console.log(model2.data);    
-    console.log(model2.toJson());
+    //console.log(model2.toJson());
+    let appElem = document.getElementById('app')
+    let el = model2.render();
+    appElem.appendChild(el);
 })();
