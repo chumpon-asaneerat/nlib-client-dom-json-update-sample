@@ -49,9 +49,12 @@ let tags = [
     // o tags.
     //'object', 'ol', 'optgroup', 'option', 'output',
     // p tags.
-    'p', 'param', 'picture', 'pre', 'progress', 
+    //'p', 'param', 'picture', 'pre', 'progress', 
     // q tags.
-    'q',
+    //'q',
+    // s tags.
+    's', 'samp', 'script', 'section', 'select', 'small', 'source', 'span', 'strong', 
+    'style', 'sub', 'summary', 'sup', 'svg', 
 ]
 
 
