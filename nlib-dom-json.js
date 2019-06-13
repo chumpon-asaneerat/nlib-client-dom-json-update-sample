@@ -16,13 +16,18 @@
             .content('The end div')
         .end
 
-    console.log(model2);
+    //console.log(model2);
     //console.log(model2.data);
-    let child1 = model2.children(1);
-    console.log(child1);
-    console.log('alt:', child1.attribute('alt'))
-    console.log('src:', child1.attribute('src'))
-    console.log('height:', child1.attribute('height'))
+    let child0 = model2.children(0);
+    console.log(child0);
+    console.log('content:', child0.content())
+    //let child1 = model2.children(1);
+    //console.log(child1);
+    //console.log('alt:', child1.attribute('alt'))
+    //console.log('src:', child1.attribute('src'))
+    //console.log('height:', child1.attribute('height'))
+    //console.log('width:', child1.attribute('width'))
+
     //console.log(model2.toJson());
     let appElem = document.getElementById('app')
     let el = model2.render();
