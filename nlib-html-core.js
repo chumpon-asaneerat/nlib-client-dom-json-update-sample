@@ -27,13 +27,16 @@ NHtml.Model.Tag = class {
 //*  + implements Html Tag in seperated files (1 file per tag).
 //*  + supports attribute.
 //*  + supports builder to create HTML element dom model and render to html element.
+//*  + supports create NHtml.Tag from NHtml.Model.Tag model.
+//*  + Implement access content value by name;
+//*  + Implement access attribute value by name;
+//*  + Implement access children by index;
 //?  + Reimplement new class to add/remove child tag model.
 //?  + supports class List.
 //?  + supports css style.
 //?  + supports mapping machanism to access generate html element to current json model.
 //?  + supports bind between Tag Model and generated HTML dom element model.
 //?  + supports event invoke when detected changed Tag model.
-//?  + supports load Json string for rebuild Html Tag model.
 
 /** The HTML Tag class. */
 NHtml.Tag = class {
@@ -55,21 +58,40 @@ NHtml.Tag = class {
     /** Gets tag name. */
     get tagName() { return this.data.tagName; }
     /**
-     * set tag content value.
+     * Gets or sets tag content's value.
      * @param {*} value The content value.
      */
     content(value) {
-        this.data.content = value;
-        return this;
+        if (value) {
+            this.data.content = value;
+            return this;
+        }
+        else {
+            return this.data.content;
+        }
+    }
+    children(index) {
+        if (index < 0 || index >= this.data.children.length) {
+            return null;
+        }
+        let child = this.data.children[index];
+        let result = NHtml.Tag.fromModel(child);
+        result.parent = this; // reassign parent.
+        return result;
     }
     /**
-     * set tag attribute.
+     * Gets or sets tag attribute's value.
      * @param {String} name The attribute name.
      * @param {*} value The attribute value.
      */
     attribute(name, value) { 
-        this.data.attribute[name.toLowerCase()] = value;
-        return this;
+        if (value) {
+            this.data.attribute[name.toLowerCase()] = value;
+            return this;
+        }
+        else {
+            return this.data.attribute[name.toLowerCase()];
+        }
     }
     get add() { return this._tags; }
     get attr() { return this._attrs; }
@@ -95,6 +117,16 @@ NHtml.Tag.Tags = class {
         /** @type {NHtml.Tag} The parent tag object. */
         this.parent = parent;
     }
+}
+
+/**
+ * Create new instace of NHtml.Tag from NHtml.Model.Tag model instance.
+ * @param {NHtml.Model.Tag} model The tag model object.
+ */
+NHtml.Tag.fromModel = (model) => {
+    let result = new NHtml.Tag();
+    result.data = model;
+    return result;
 }
 
 //$ Class to create HTML Attribute element.
