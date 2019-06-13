@@ -82,7 +82,7 @@ NHtml.Tag = class {
     }
     /** Gets json data model in string. */
     toJson() { return JSON.stringify(this.data, null, 4); }
-
+    /** Gets html dom. */
     render() { return NHtml.Builder.createElement(this.data); }
 }
 /** Dynamic tags class */
