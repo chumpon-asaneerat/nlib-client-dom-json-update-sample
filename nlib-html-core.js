@@ -1,3 +1,14 @@
+//$ TODO Note.
+//?  + 1. Need to check bind between json data model (send to server for save/load) with HTMLElement
+//?  +    for render on screen and update back to model when style changed.
+//?  + 2. Completed the MSSQL data access library.
+//?  + 3. Prepare prototype for new Rater.Web (all pages/routes)
+//?  + 4. 
+//?  + 5. 
+//?  + 6. 
+//?  + 7. 
+
+
 /** The NHtml namespace. */
 class NHtml {}
 /** The NHtml.Model namespace. */
