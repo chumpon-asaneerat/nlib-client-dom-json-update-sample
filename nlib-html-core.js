@@ -3,7 +3,9 @@
 //?  +    for render on screen and update back to model when style changed.
 //?  + 2. Completed the MSSQL data access library.
 //?  + 3. Prepare prototype for new Rater.Web (all pages/routes)
-//?  + 4. 
+//?  + 4. From 1. The main ovserver should be the model itself when model create HTMLElement
+//?  +    it must attach the model itself to newly created HTMLElement for later reference
+//?  +    in eventhandler without the DOM Travasal or Model Travasal.
 //?  + 5. 
 //?  + 6. 
 //?  + 7. 
