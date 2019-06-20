@@ -8,7 +8,7 @@
 //?  +    in eventhandler without the DOM Travasal or Model Travasal.
 //?  + 5. Database port from x3 to x4
 //?  + 6. Check how to generate db scripts (script order -> table/sp).
-//?  + 7. 
+//?  + 7. Date compare function.
 
 
 /** The NHtml namespace. */
