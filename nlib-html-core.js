@@ -7,7 +7,7 @@
 //?  +    it must attach the model itself to newly created HTMLElement for later reference
 //?  +    in eventhandler without the DOM Travasal or Model Travasal.
 //?  + 5. Database port from x3 to x4
-//?  + 6. 
+//?  + 6. Check how to generate db scripts (script order -> table/sp).
 //?  + 7. 
 
 
